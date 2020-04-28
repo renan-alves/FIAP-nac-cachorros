@@ -27,11 +27,11 @@ public class CachorroController {
 	@GetMapping("/form")
 	public String open(@RequestParam String page, 
 					   @RequestParam(required = false) Long id,
-					   @ModelAttribute("produtoModel") CachorroModel produtoModel, 
+					   @ModelAttribute("cachorroModel") CachorroModel cachorroModel, 
 					   Model model) {
 		
-		if("produto-editar".equals(page)) {
-			model.addAttribute("produtoModel", repository.findById(id));
+		if("cachorro-editar".equals(page)) {
+			model.addAttribute("cachorroModel", repository.findById(id));
 		}
 		
 		return page;
@@ -48,7 +48,7 @@ public class CachorroController {
 	public String findById(@PathVariable("id") long id, Model model) {
 		
 		model.addAttribute("cachorro", repository.findById(id));
-		return "produto-detalhe";//MUDAR DPS
+		return "cachorro-detalhe";//MUDAR DPS
 	}
 	
 	@PostMapping()

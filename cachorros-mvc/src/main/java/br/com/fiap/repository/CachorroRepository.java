@@ -24,11 +24,11 @@ public class CachorroRepository {
 
 		cachorros = new HashMap<Long, CachorroModel>();
 		
-		cachorros.put(1L, new CachorroModel(1L, "Mick", "Maltês", "M", 3, true, "Bagunceiro"));
-		cachorros.put(14L, new CachorroModel(14L, "Jade", "Pinscher", "F", 9, true, "Ataca todo mundo e quer matar tudo que se move"));
-		cachorros.put(15L, new CachorroModel(15L, "Mel", "Lhasa-apso", "F", 9, true, "Fofa demais"));
-		cachorros.put(4L, new CachorroModel(4L, "Tobi", "Vira-Lata", "M", 2, true, "Muito dócil e obediente"));
-		cachorros.put(16L, new CachorroModel(16L, "Toninho", "Vira-Lata", "M", 2, false, "Cachorro carinhoso que gosta de dar abraços"));
+		cachorros.put(1L, new CachorroModel(1L, "Mick", "Maltês", "M", 3.0, "Bagunceiro"));
+		cachorros.put(14L, new CachorroModel(14L, "Jade", "Pinscher", "F", 9.0, "Ataca todo mundo e quer matar tudo que se move"));
+		cachorros.put(15L, new CachorroModel(15L, "Mel", "Lhasa-apso", "F", 9.0, "Fofa demais"));
+		cachorros.put(4L, new CachorroModel(4L, "Tobi", "Vira-Lata", "M", 2.0, "Muito dócil e obediente"));
+		cachorros.put(16L, new CachorroModel(16L, "Toninho", "Vira-Lata", "M", 2.0, "Cachorro carinhoso que gosta de dar abraços"));
 	}
 
 	public ArrayList<CachorroModel> findAll() {

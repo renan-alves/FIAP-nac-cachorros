@@ -9,18 +9,16 @@ public class CachorroModel {
 	private String nome;
 	private String raca;
 	private String sexo;
-	private double idade;
-	private boolean castrado;
+	private Double idade;
 	private String descricao;
 	
-	public CachorroModel(Long id, String nome, String raca, String sexo, double idade, boolean castrado,
+	public CachorroModel(Long id, String nome, String raca, String sexo, Double idade,
 			String descricao) {
 		this.id = id;
 		this.nome = nome;
 		this.raca = raca;
 		this.sexo = sexo;
 		this.idade = idade;
-		this.castrado = castrado;
 		this.descricao = descricao;
 	}
 
@@ -58,21 +56,13 @@ public class CachorroModel {
 		this.sexo = sexo;
 	}
 
-	public double getIdade() {
+	public Double getIdade() {
 		return idade;
 	}
 
 	@DecimalMin(value = "0.1", message = "Idade deve ser acima de 0")
-	public void setIdade(double idade) {
+	public void setIdade(Double idade) {
 		this.idade = idade;
-	}
-
-	public boolean isCastrado() {
-		return castrado;
-	}
-
-	public void setCastrado(boolean castrado) {
-		this.castrado = castrado;
 	}
 
 	public String getDescricao() {

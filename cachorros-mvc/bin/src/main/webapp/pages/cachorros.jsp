@@ -18,6 +18,7 @@
 
 <link href="${css}/bootstrap.css" rel="stylesheet">
 <link href="${css}/small-business.css" rel="stylesheet">
+<link href="${css}/style.css" rel="stylesheet">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -100,7 +101,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<a class="btn btn-primary btn-lg"
-					href="${contextPath}/cachorro/form?page=cachorro-novo"
+					href="${contextPath}/cachorro/form?page=produto-novo"
 					style="margin: 10px; background: #692e8c">Cadastrar Cachorro</a>
 				<p class="toolbar">
 					<span class="alert"></span>
@@ -118,19 +119,19 @@
 					</thead>
 					<tbody>
 
-						<c:forEach items="${cachorros}" var="cachorro">
+						<c:forEach items="${cachorros}" var="cachorros">
 							<tr>
-								<td>${cachorro.nome}</td>
-								<td>${cachorro.raca}</td>
+								<td>${cachorros.nome}</td>
+								<td>${cachorros.raca}</td>
 
 								<td class="actions"><form:form
-										action="${contextPath}/cachorro/${cachorro.id}"
+										action="${contextPath}/cachorro/${cachorros.id}"
 										method="delete">
 
 										<a class="btn btn-info btn-xs"
-											href="${contextPath}/cachorro/${cachorro.id}">Detalhes</a>
+											href="${contextPath}/cachorro/${cachorros.id}">Detalhes</a>
 										<a class="btn btn-primary btn-xs"
-											href="${contextPath}/cachorro/form?page=cachorro-editar&id=${cachorro.id}">Editar</a>
+											href="${contextPath}/cachorro/form?page=produto-editar&id=${cachorros.id}">Editar</a>
 										<input type="submit" value="Excluir"
 											class="btn btn-danger btn-xs">
 									</form:form></td>
