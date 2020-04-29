@@ -52,39 +52,39 @@ public class CachorroController {
 	}
 	
 	@PostMapping()
-	public String save(@Valid CachorroModel produtoModel, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public String save(@Valid CachorroModel cachorroModel, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		
 		if(bindingResult.hasErrors()) {
-			return "produto-novo";
+			return "cachorro-novo";
 		}
 		
-		repository.save(produtoModel);
-		redirectAttributes.addFlashAttribute("messages", "Produto cadastrado com sucesso!");
+		repository.save(cachorroModel);
+		redirectAttributes.addFlashAttribute("messages", "Cachorro cadastrado com sucesso!");
 		
-		return "redirect:/produto";
+		return "redirect:/cachorro";
 	}
 	
 	@PutMapping("/{id}")
-	public String update(@PathVariable("id") long id, @Valid CachorroModel produtoModel, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public String update(@PathVariable("id") long id, @Valid CachorroModel cachorroModel, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		
 		if(bindingResult.hasErrors()) {
-			return "produto-editar";
+			return "cachorro-editar";
 		}
 		
-		produtoModel.setId(id);
-		repository.update(produtoModel);
-		redirectAttributes.addFlashAttribute("messages", "Produto alterado com sucesso!");
+		cachorroModel.setId(id);
+		repository.update(cachorroModel);
+		redirectAttributes.addFlashAttribute("messages", "Cadastro de cachorro alterado com sucesso!");
 		
-		return "redirect:/produto";
+		return "redirect:/cachorro";
 	}
 	
 	@DeleteMapping("/{id}")
 	public String deleteById(@PathVariable("id") long id, RedirectAttributes redirectAttributes) {
 		
 		repository.deleteById(id);
-		redirectAttributes.addFlashAttribute("messages", "Produto excluído com sucesso!");
+		redirectAttributes.addFlashAttribute("messages", "Cachorro excluído com sucesso! Esperamos que ele tenha sido adotado :)");
 
-		return "redirect:/produto";
+		return "redirect:/cachorro";
 	}
 
 }

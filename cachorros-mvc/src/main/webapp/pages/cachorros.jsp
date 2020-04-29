@@ -27,21 +27,39 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
+	
+<script>history.scrollRestoration = "manual"</script>
 
 </head>
 
 <body>
+
 	<nav class="navbar  navbar-fixed-top navbar-light"
 		style="background-color: #692e8c;" role="navigation">
 		<div class="container">
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="${contextPath}/cachorro"> <img
-							src="https://karenpryoracademy.com/wp-content/uploads/2017/12/animal-training-classes-clicker-training-karen-pryor-dog-trainer-professional-sticky-header-blueicon.png"
-							height="80" width="80" />
-					</a></li>
-				</ul>
+
+			<div class="row">
+				<div>
+					<a href="/cachorros-mvc/cachorro">
+						<div class="col-md-1">
+							<div class="collapse navbar-collapse"
+								id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li><img
+										src="https://karenpryoracademy.com/wp-content/uploads/2017/12/animal-training-classes-clicker-training-karen-pryor-dog-trainer-professional-sticky-header-blueicon.png"
+										height="80" width="80"></li>
+								</ul>
+
+
+							</div>
+						</div>
+						<div class="col-md-4" style="padding-top: 23px;">
+							<div>
+								<h1 style="color: deepskyblue;">Adote seu amigo!</h1>
+							</div>
+						</div>
+					</a>
+				</div>
 			</div>
 		</div>
 	</nav>
@@ -108,7 +126,54 @@
 				<c:if test="${not empty messages}">
 					<h3 class="alert alert-warning">${messages}</h3>
 				</c:if>
-				<table class="table">
+				<ul class="list">
+					<c:forEach items="${cachorros}" var="cachorro">
+						<li class="list-item"><div class="h-100 w-100">
+								<div class="box">
+									<figure class="avatar">
+										<c:if test="${cachorro.sexo.equals('M')}">
+											<img id="avatar"
+												src="https://karenpryoracademy.com/wp-content/uploads/2017/12/animal-training-classes-clicker-training-karen-pryor-dog-trainer-professional-sticky-header-blueicon.png">
+										</c:if>
+										<c:if test="${cachorro.sexo.equals('F')}">
+											<img id="avatar"
+												src="https://karenpryoracademy.com/wp-content/uploads/2017/12/animal-training-classes-clicker-training-karen-pryor-dog-trainer-professional-sticky-header-blueicon.png"
+												style="filter: hue-rotate(88deg);">
+										</c:if>
+
+									</figure>
+									<h3 class="title has-text-black">
+										<span id="name">${cachorro.nome}</span> <sup><i
+											id="pronoun"></i></sup>
+									</h3>
+									<div id="bio"></div>
+									<br>
+									<table class="table details">
+
+										<tr>
+											<td class="actions"><form:form
+													action="${contextPath}/cachorro/${cachorro.id}"
+													method="delete">
+
+													<a class="btn btn-info btn-xs"
+														href="${contextPath}/cachorro/${cachorro.id}">Detalhes</a>
+													<a class="btn btn-primary btn-xs"
+														href="${contextPath}/cachorro/form?page=cachorro-editar&id=${cachorro.id}">Editar</a>
+													<input type="submit" value="Excluir"
+														class="btn btn-danger btn-xs">
+												</form:form></td>
+
+										</tr>
+
+
+									</table>
+									<br>
+
+								</div>
+							</div></li>
+					</c:forEach>
+				</ul>
+				<%-- <table class="table">
 					<thead>
 						<tr>
 							<th data-field="name">Nome</th>
@@ -137,12 +202,33 @@
 							</tr>
 						</c:forEach>
 					</tbody>
-				</table>
+				</table>--%>
 			</div>
 		</div>
 		<hr>
 	</div>
+	<style>
+.list {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+}
 
+.list-item {
+	padding: 0;
+	flex-basis: 26%;
+	margin: 1em;
+	min-width: 150px;
+}
+
+.w-100 {
+	width: 100%;
+}
+
+.h-100 {
+	height: 100%;
+}
+</style>
 	<!-- jQuery -->
 	<script src="${js}/jquery.js"></script>
 

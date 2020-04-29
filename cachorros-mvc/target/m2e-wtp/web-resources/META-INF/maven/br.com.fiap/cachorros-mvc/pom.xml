@@ -6,7 +6,7 @@
 	<artifactId>cachorros-mvc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>Produtos MVC</name>
+	<name>Cachorros MVC</name>
 	<description>Exemplos de CRUD</description>
 
 	<properties>
@@ -39,7 +39,7 @@
 	</build>
 
 	<dependencies>
-		<!-- DEPENDÊNCIAS DO SPRING -->
+		<!-- SPRING -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -58,7 +58,7 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		<!-- DEPENDÊNCIAS DO SERVLET -->
+		<!-- SERVLET -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>

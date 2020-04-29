@@ -1,6 +1,7 @@
 package br.com.fiap.model;
 
 import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class CachorroModel {
@@ -30,24 +31,25 @@ public class CachorroModel {
 		this.id = newId;
 	}
 
+	@Size(min = 1, max = 50, message = "O nome deve conter até 50 caracteres")
 	public String getNome() {
 		return nome;
 	}
 
-	@Size(min = 1, max = 50, message = "O nome deve conter até 50 caracteres")
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
+	@Size(min = 1, max = 50, message = "A raça deve conter até 50 caracteres")
 	public String getRaca() {
 		return raca;
 	}
 
-	@Size(min = 1, max = 50, message = "A raça deve conter até 50 caracteres")
 	public void setRaca(String raca) {
 		this.raca = raca;
 	}
 
+	@Size(min = 1, max = 2, message = "Sexo deve ser \"M\" (masculino) ou \"F\" (feminino)")
 	public String getSexo() {
 		return sexo;
 	}
@@ -56,15 +58,16 @@ public class CachorroModel {
 		this.sexo = sexo;
 	}
 
+	@DecimalMin(value = "0.1", message = "Idade deve ser acima de 0")
 	public Double getIdade() {
 		return idade;
 	}
 
-	@DecimalMin(value = "0.1", message = "Idade deve ser acima de 0")
 	public void setIdade(Double idade) {
 		this.idade = idade;
 	}
 
+	@Size(min = 1, max = 200, message = "Descricao deve ter no mínimo 1 e no máximo 200 caracteres")
 	public String getDescricao() {
 		return descricao;
 	}
